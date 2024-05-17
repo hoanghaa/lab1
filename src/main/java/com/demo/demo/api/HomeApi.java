@@ -9,18 +9,21 @@ import java.util.Map;
 
 @RestController
 public class HomeApi {
-    @GetMapping("getInfomation")
-    public ResponseEntity<?> doGetInfomation(@RequestBody Student student){
-        Map<String,Object> result= new HashMap<String,Object>();
-        try {
-            result.put("success",true);
-            result.put("message","call api success");
-            result.put("success",student);
-        }catch (Exception e){
-            result.put("success",false);
-            result.put("message","call api fail");
-            result.put("success",null);
-        }
+    @GetMapping("/getStudentInformation")
+    public ResponseEntity<?> doGetStudentInformation(Student student){
+        Map <String, Object> result = new HashMap<>();
+        result.put("message","Call api success");
+        result.put("status",true);
+        result.put("data",student);
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/postStudentInformation")
+    public ResponseEntity<?> doPostStudentInformation(@RequestBody Student student){
+        Map <String, Object> result = new HashMap<>();
+        result.put("message","Call api success");
+        result.put("status",true);
+        result.put("data",student);
         return ResponseEntity.ok(result);
     }
 }
