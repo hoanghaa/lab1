@@ -1,6 +1,8 @@
 package com.demo.demo.api;
 
+import com.demo.demo.dto.SinhVienDTO;
 import com.demo.demo.entity.Student;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,7 @@ public class HomeApi {
     }
 
     @PostMapping("/postStudentInformation")
-    public ResponseEntity<?> doPostStudentInformation(@RequestBody Student student){
+    public ResponseEntity<?> doPostStudentInformation(@Valid @RequestBody SinhVienDTO student){
         Map <String, Object> result = new HashMap<>();
         result.put("message","Call api success");
         result.put("status",true);
