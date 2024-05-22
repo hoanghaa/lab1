@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class ValidateParam extends ResponseEntityExceptionHandler {
-
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException exception,
                                                                   HttpHeaders headers,
@@ -28,7 +27,6 @@ public class ValidateParam extends ResponseEntityExceptionHandler {
         Map<String, Object> objectBody = new LinkedHashMap<>();
         objectBody.put("Current Timestamp", new Date());
         objectBody.put("Status", httpStatusCode.value());
-        //Get Message
         Map<String, String> exceptionErrors = exception.getFieldErrors().stream()
                 .collect(Collectors.toMap(
                         error -> error.getField(),

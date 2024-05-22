@@ -11,6 +11,7 @@ import java.util.Map;
 
 @RestController
 public class HomeApi {
+
     @GetMapping("/getStudentInformation")
     public ResponseEntity<?> doGetStudentInformation(Student student){
         Map <String, Object> result = new HashMap<>();
@@ -28,4 +29,5 @@ public class HomeApi {
         result.put("data",student);
         return ResponseEntity.ok(result);
     }
+
 }
